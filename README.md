@@ -9,26 +9,29 @@
 - Wait for an email based on the specified requirement(s)
 
 ###### Add using statement
-    using TempMail;
-
+```csharp
+using TempMail;
+```
 ###### Code example
 
-    async Task TemporaryEmailDemo()
+```csharp
+async Task TemporaryEmailDemo()
+{
+    using (var tempMail = new TemporaryMail())
     {
-        using (var tempMail = new TemporaryMail())
-        {
-            var mailbox = await tempMail.GenerateRandomMailbox();
+        var mailbox = await tempMail.GenerateRandomMailbox();
 
-            // Some code eg. await registrationService.Register(mailbox);
+        // Some code eg. await registrationService.Register(mailbox);
 
-            // Email address of the sender has to contain "example.com"
-            // and email must not be older than 2 minutes
-            var email = await tempMail.WaitForEmail(mailbox,
-                x => x.from.Contains("example.com") && DateTime.Now < x.GetDate().AddMinutes(2)
-                );
+        // Email address of the sender has to contain "example.com"
+        // and email must not be older than 2 minutes
+        var email = await tempMail.WaitForEmail(mailbox,
+            x => x.from.Contains("example.com") && DateTime.Now < x.GetDate().AddMinutes(2)
+            );
 
-            // Some code eg. parse email body for the activation code / url
+        // Some code eg. parse email body for the activation code / url
 
-            Console.WriteLine(email.body);
-        }
+        Console.WriteLine(email.body);
     }
+}
+```

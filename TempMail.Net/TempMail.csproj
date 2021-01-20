@@ -2,10 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Erol444</Authors>
+    <Description>Temporary email library for .NET (wrapper) based on 1secmail.com API</Description>
+    <RepositoryUrl>https://github.com/Erol444/TempMail.NET</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Erol444/TempMail.NET</PackageProjectUrl>
+    <PackageTags>temporary email</PackageTags>
+    <PackageIcon>icons8-email-open-64.png</PackageIcon>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>TempMail</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="D:\Downloads\icons8-email-open-64.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
